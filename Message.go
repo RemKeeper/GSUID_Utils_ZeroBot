@@ -7,6 +7,7 @@ import (
 	"github.com/wdvxdr1123/ZeroBot/message"
 	"log"
 	"strconv"
+	"strings"
 )
 
 func MakeSendCoreMessage(ctx *zero.Ctx) []byte {
@@ -21,7 +22,7 @@ func MakeSendCoreMessage(ctx *zero.Ctx) []byte {
 		Content: []Message{
 			{
 				Type: "text",
-				Data: ctx.MessageString(),
+				Data: strings.Replace(ctx.MessageString(), "&amp;", "&", -1),
 			},
 		},
 	}
